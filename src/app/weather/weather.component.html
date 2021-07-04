@@ -1,0 +1,23 @@
+<form [formGroup]="weather">
+  <div>
+    Enter City :
+    <input type="text" formControlName="city" id="city" (blur)="getWeatherDetails(weather.value)" />
+  </div>
+  <br>
+  <div data-test-id="weather-details" *ngIf="flag; else elseBlock">
+    <span data-test-id="output-temperature">{{temperature}}</span>
+
+    <div data-test-id="output-wind">
+      Wind: {{wind}}
+    </div>
+    <div data-test-id="output-humidity">
+      Humidity: {{humidity}}
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div data-test-id="no-results">
+      No Results Found
+    </div>
+  </ng-template>
+
+</form>
